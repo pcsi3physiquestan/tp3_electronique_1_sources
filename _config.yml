@@ -60,6 +60,8 @@ html:
 latex:
   latex_engine              : xelatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
   use_jupyterbook_latex     : true # use jupyterbook-latex for pdf builds as default
+  latex_documents:
+    targetname: tp3_elec_1.tex
 
 #######################################################################################
 # Launch button settings

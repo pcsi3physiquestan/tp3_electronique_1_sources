@@ -18,5 +18,5 @@
 - part: Plus d'initiatives
   chapters:
   - file: notebook/elec_supplement
-  - file: notebook/microcontrolleur
+  # - file: notebook/microcontrolleur
 
