@@ -1,22 +1,23 @@
-# In _toc.yml
-- file: tp3_elec.md
+format: jb-book
+root: tp3_elec.md
+parts:
+- caption: "Familiarisation avec le matériel"
   numbered: true
-
-- part: Familiarisation avec le matériel
   chapters:
   - file: notebook/fam_preliminaire
   - file: notebook/fam_preliminaire_2
   - file: notebook/fam_manip
-- part: Création d'un signal modulé en amplitude
+- caption: "Création d'un signal modulé en amplitude"
+  numbered: true
   chapters:
   - file: notebook/modul_preliminaire
   - file: notebook/mod_manip
-- part: Démodulation d'un signal
+- caption: "Démodulation d'un signal"
+  numbered: true
   chapters:
   - file: notebook/demod_preliminaire
   - file: notebook/demod_manip
-- part: Plus d'initiatives
+- caption: Plus d'initiatives
+  numbered: true
   chapters:
   - file: notebook/elec_supplement
-  # - file: notebook/microcontrolleur
-
