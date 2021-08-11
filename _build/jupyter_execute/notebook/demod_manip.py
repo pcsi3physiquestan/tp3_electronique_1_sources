@@ -208,3 +208,10 @@ ax.set_xscale("log")
 # 5. Rendre compte de votre manipulation et de vos observations.
 # 
 # ````
+# 
+# ````{admonition} Compte-rendu
+# :class: tip
+# Rendre-compte :
+# 1. De l'étude de la cellule RC et de son utilisation dans la démodulation
+# 2. Du principe de la détection synchrone, de l'étude du filtre utilisé puis de la mise en place de la détection synchrone.
+# ````
