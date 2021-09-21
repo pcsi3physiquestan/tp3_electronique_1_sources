@@ -51,7 +51,7 @@ f,ax = plt.subplots()
 f.suptitle("Mettre un titre")
 ax.set_xlabel("Légender les X")
 ax.set_ylabel("Légender les Y")
-ax.errorbar(u, i, xerr=uu, yerr=ui, legend="Légender la courbe", linestyle="",)
+ax.errorbar(u, i, xerr=uu, yerr=ui, label="Légender la courbe", linestyle="",)
 ax.grid()
 ax.legend()
 plt.show()
@@ -60,7 +60,7 @@ plt.show()
 # ### Estimation de la tension seuil
 # On va estimer la tension seuil par une méthode (très approchée) : ce sera la moyenne des valeurs de la tension aux bornes de la diode quand l'intensité qui y circule est non nulle. On prendra comme critère __arbitraire__ d'intensité non nulle $i \geq \frac{E_0}{R_p}$ avec $E_0 = 0.5V$ (c'est un critère arbitraire qui a ses limites). La cellule ci-dessous permet d'estimer $U_d$. Essayer de comprendre le programme et modifier les lignes de code demandées pour faire fonctionner le code :
 
-# In[ ]:
+# In[2]:
 
 
 def estim_ud(u, i, E0, RP):
