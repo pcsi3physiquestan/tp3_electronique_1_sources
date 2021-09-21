@@ -94,8 +94,8 @@ f,ax = plt.subplots()
 f.suptitle("Mettre un titre")
 ax.set_xlabel("Légender les X")
 ax.set_ylabel("Légender les Y")
-ax.errorbar(u, i, xerr=uu, yerr=ui, legend="Légender la courbe", linestyle="", color="black")
-ax.plot([-5, ud_estim, ud_estim], [0, 0, 5]legend="Légender la courbe", linestyle="-",color="red")
+ax.errorbar(u, i, xerr=uu, yerr=ui, label="Légender la courbe", linestyle="", color="black")
+ax.plot([-5, ud_estim, ud_estim], [0, 0, 5], label="Légender la courbe", linestyle="-",color="red")
 ax.grid()
 ax.legend()
 plt.show()
@@ -297,7 +297,7 @@ f.savefig("caracteristique_diode.png")
 # 2. La tension de commande est, dans une modélisation de Thévenin du GBF, la tension de la source idéale de tension. En déduire une méthode pour calculer $R_S$ grâce aux mesures précédentes. Utiliser la cellule ci-dessous pour estimer $R_S$ et son incertitude-type grâce à une méthode de Monte-Carlo.
 # ````
 
-# In[ ]:
+# In[3]:
 
 
 """On importe pour vous la bibliothèque numpy.random"""
