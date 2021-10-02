@@ -158,7 +158,8 @@ f.savefig("caracteristique_diode.png")
 # ```{margin}
 # * Les consoles FOXY en TP sont limités à 16000 points et une fréquence d'échantillonage de 10MHz. Ce sera suffisant pour nous.
 # * Un oscilloscope règle lui même sa fréquence d'échantillonnage en fonction de ses limites. On ne peut jouer que sur la durée d'acquisition pour éviter d'acquérir sur un temps trop long.
-# ```
+# 
+# Des explications plus visuelles sur des simulations seront données lors du traitement des capacités numériques.
 # ````
 # 
 # ### Acquisition unique ou continue ?
@@ -184,6 +185,7 @@ f.savefig("caracteristique_diode.png")
 #     1. De la voie de synchronisation
 #     2. Du niveau de synchronisation
 #     3. De la pente de synchronisation
+# 
 # ```{margin}
 # Avec un oscilloscope, la synchronisation est toujours nécessaire. Souvent les réglages automatiques suffisent mais si le signal n'est pas stable, il faut penser à la régler.
 # ```
