@@ -20,4 +20,5 @@ parts:
 - caption: Plus d'initiatives
   numbered: true
   chapters:
+  - file: notebook/u_seuil_exp
   - file: notebook/elec_supplement
