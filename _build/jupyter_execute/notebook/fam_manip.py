@@ -40,6 +40,7 @@ i = np.array([])  # Valeurs d'intensité
 uu = np.array([])  # Incertitudes sur les tensions (ce sera un vecteur numpy)
 ui = np.array([])  # Incertitudes sur les intensités (ce sera un vecteur numpy)
 
+
 """Vous devez maintenant tracer le graphique. On rappelle :
 - plt.subplots() crée la fenêtre graphique et  les axes (penser à utiliser les variables)
 - penser à légender les abscisses et les ordonnées (avec les unités)

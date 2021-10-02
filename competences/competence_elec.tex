@@ -1,0 +1,89 @@
+%!TEX root = optique.tex
+%----------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------
+\documentclass[11pt,french,landscape]{article}
+% Création des en-têtes et pieds de page
+\RequirePackage{calc} % Evaluer des expressions mathématiques
+\RequirePackage{ifthen} % Pour traiter des conditions (pour gérer le prof/eleves)
+\RequirePackage{amsmath,amssymb,amsfonts,amsthm,mathtools} % Ensembles d'outils pour les expressions mathematiques
+\RequirePackage[usenames,dvipsnames]{xcolor} % Utilisation des couleurs (64)
+\RequirePackage[many]{tcolorbox} % Création de box et théorèmes encadrés. Charge d'autres packages
+\RequirePackage{enumitem} %Gestion des liste
+\RequirePackage{stmaryrd}
+
+% Packages: pour la mise en page
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry} % Pour la mise en page. On pourrait la diminuer
+% Packages: pour les tableaux
+\usepackage{array}%Pour les largeurs de colonnes
+\usepackage{booktabs} % Pour les lignes
+\usepackage{multirow} % Fusion de lignes
+
+% Packages: Mise en forme du texte
+\usepackage[utf8]{inputenc} % Les fichiers doivent etre ecrits en UTF-8
+\usepackage[T1]{fontenc} % Pour les césures et autre
+\usepackage{lmodern} % Pack de polices
+\usepackage{babel} % Prise en compte des accents et autres - Le francais est mis en en-tete
+\usepackage{microtype}% Pour une précision dans l'affichage
+
+
+\begin{document}
+\fbox{
+\begin{minipage}{0.9\textwidth}
+\centering
+Compétences en électrocinétique
+\end{minipage}
+}
+
+\begin{tabular}{|p{15cm}|c|c|c|c|}
+\toprule
+ & Pas du tout & Connaissance & Cas simple & Maîtrise\\
+\toprule
+Acquérir correctement une tension avec une console PC & & & & \\
+\midrule
+Acquérir correctement une tension avec un oscilloscope (base de temps)& & & & \\
+\midrule
+Acquérir correctement une tension avec un oscilloscope (déviation verticale)& & & & \\
+\midrule
+Acquérir correctement une tension avec un oscilloscope (couplage)& & & & \\
+\midrule
+Acquérir correctement une tension avec un oscilloscope (mesures au curseur)& & & & \\
+\midrule
+Acquérir correctement une tension avec un oscilloscope (synchronisation)& & & & \\
+\midrule
+Mesurer correctement une tension avec un multimètre (calibre, choix du mode) & & & & \\
+\midrule
+Utiliser des câbles simples et coaxiaux & & & & \\
+\midrule
+Brancher correctement des composants R, L et C (cavaliers ou boit eà décade) & & & & \\
+\midrule
+Régler correctement un GBF & & & & \\
+\midrule
+Câbler un circuit simple sans conflit de masse & & & & \\
+\midrule
+Câbler un circuit avec ALI & & & & \\
+\midrule
+Savoir quand et comment utiliser un transformateur d'isolement & & & & \\
+\midrule
+Mesurer un déphasage entre deux signaux sinusoïdaux & & & & \\
+\midrule
+Mesurer les caractéristiques d'un signal sinusoïdal (fréquence, amplitude, valeur moyenne) & & & & \\
+\midrule
+Mesurer l'impédance interne d'un GBF & & & & \\
+\midrule
+Observer un régime transitoire correctement & & & & \\
+\midrule
+Mesurer les caractéristiques d'un régime transitoire d'ordre 1 (V initiale et finale, temps caractéristique) & & & & \\
+\midrule
+Mesurer les caractéristiques d'un régime transitoire d'ordre 2 (pseudo-période, décrément logarithmique, pulsation propre, facteur de qualité) & & & & \\
+\midrule
+Déterminer le type d'un filtre linéaire & & & & \\
+\midrule
+Mesurer un gain et une phase d'un filtre linéaire & & & & \\
+\midrule
+Mesurer les caractéristiques d'un filtre (f coupure, résonance, Bode, asymptote) d'un filtre linéaire & & & & \\
+\bottomrule
+\end{tabular}
+
+
+\end{document}
+
