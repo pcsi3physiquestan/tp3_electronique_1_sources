@@ -36,7 +36,7 @@
 # ```{figure} ./images/diode_symbole.png
 # :name: diode_symbole
 # :align: center
-# :width: 70%
+# :width: 25%
 # Symbole d'une diode
 # ```
 # ````
@@ -106,6 +106,8 @@
 # 3. Représenter sur le graphique de la caractéristique statique de la diode, la caractéristique statique du dipôle $V + R_p$. Où est le point de fonctionnement du circuit ?
 # 4. Expliquer précisément comment faire pour obtenir plusieurs points de fonctionnement du circuit et retracer ainsi la caractéristique de la diode.
 # 5. Préparer _intelligemment_ un tableau de valeurs (10) de $V(t)$ pour lesquelles vous déterminerez le point de fonctionnement.
+# 6. Que signifie le symbole au dessous de la source idéale de tension ?
+#     * C'est une caractéristique fréquente des oscilloscopes et des GBF, l'une des bornes est reliée à la Terre.
 # ```
 # 
 # ### Utilisation des instruments de mesure.
@@ -202,4 +204,4 @@
 # 
 # ````
 # 
-# Nous verrons comment s'affranchir de ce problème en TP en utilisation un transformateur d'isolement.
+# Pour s'affranchir de ce problème, il faut utiliser _un transformateur d'isolement_.

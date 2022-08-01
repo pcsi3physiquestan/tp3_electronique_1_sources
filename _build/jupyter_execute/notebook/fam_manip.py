@@ -7,13 +7,21 @@
 # 
 # ## Caractéristique statique d'une diode. (1h30)
 # 
-# ### Manipulation
+# ### Manipulations
+# 
+# ```{admonition} Mesure unique et incertitude
+# :class: tip
+# * Réaliser le montage proposé dans votre protocole et réaliser les mesures de tension et d'intensité voulue pour une tension du GBF de 5V.
+# * Faire un bilan des incertitudes et les estimer pour chaque source. Commenter le caractère prépondérant ou non de chaque source.
+# 
+# Les données sur les incertitudes de mesure associées aux mesures données par les multimètres Fluke sont disponibles [ici](https://stanislas.edunao.com/pluginfile.php/24681/mod_resource/content/0/fluke_287_289.pdf) (connexion au site nécessaire). Une explication de l'utilisation de ces domaines se trouve [ici](https://stanislas.edunao.com/mod/page/view.php?id=13269).
+# ```
+# 
+# __Par la suite, et _pour simplifier l'étude_, on considèrera qu'il n'y a qu'une seule source d'incertitude pour chaque mesurande : celle qui est la plus importante par les précédentes.__ Attention, en réalité, ça n'est pas vrai pour toutes les mesures à venir.
 # 
 # ```{admonition} Manipulation
 # :class: tip
 # Réaliser le montage proposé dans votre protocole et tracer la caractéristique statique de la diode. Vous utiliserez la cellule de code ci-dessous pour tracer la caractéristique statique.
-# 
-# Les données sur les incertitudes de mesure associées aux mesures données par les multimètres Fluke sont disponibles [ici](https://stanislas.edunao.com/pluginfile.php/24681/mod_resource/content/0/fluke_287_289.pdf) (connexion au site nécessaire). Une explication de l'utilisation de ces domaines se trouve [ici](https://stanislas.edunao.com/mod/page/view.php?id=13269).
 # ```
 
 # ### Tracé de la courbe
@@ -28,25 +36,18 @@ import matplotlib.pyplot as plt
 """Entrer ci-dessous les quatre vecteurs numpy correspondant :
 - aux mesures de tensions
 - aux mesures d'intensité
-- aux estimations d'inceritude sur U (vous pouvez utiliser des variables intermédiaires et des opérations sur les vecteurs numpy)
-- aux estimations d'inceritude sur I (vous pouvez utiliser des variables intermédiaires et des opérations sur les vecteurs numpy)
+- aux estimations d'inceritude sur U (on rappelle que vous n'estimez que la plus importante)
+- aux estimations d'inceritude sur I (on rappelle que vous n'estimez que la plus importante)
 """
 u = np.array([])  # Valeurs de tensions
 i = np.array([])  # Valeurs d'intensité
-
-# Mettre ici vos intermédiaires de calcul pour les calculs d'incertitude.
-# NOTE : IL EST POSSIBLE QUE VOUS UTILISIEZ DES FORMULES
 
 uu = np.array([])  # Incertitudes sur les tensions (ce sera un vecteur numpy)
 ui = np.array([])  # Incertitudes sur les intensités (ce sera un vecteur numpy)
 
 
-"""Vous devez maintenant tracer le graphique. On rappelle :
-- plt.subplots() crée la fenêtre graphique et  les axes (penser à utiliser les variables)
-- penser à légender les abscisses et les ordonnées (avec les unités)
-- Titrer votre graphique
-- tracer les points de mesures non reliés avec les croix d'incertitude et légender votre courbe.
-- afficher la courbe avec plt.show() à la fin
+"""Vous allez maintenant tracer le graphique. Le script étant écrit,
+il ne reste qu'à modifier les légendes.
 """
 f,ax = plt.subplots()
 f.suptitle("Mettre un titre")
@@ -59,14 +60,14 @@ plt.show()
 
 
 # ### Estimation de la tension seuil
-# On va estimer la tension seuil par une méthode d'optimisation basée sur la minimisation des écarts entre les points de mesure et la courbe (droites par morceaux ici) pour une valeur de $U_d$. Vous pouvez [des explications sur la méthode d'optimisation](u_seuil).
+# On va estimer la tension seuil par une méthode d'optimisation basée sur la minimisation des écarts entre les points de mesure et la courbe (droites par morceaux ici) pour une valeur de $U_d$. Vous pouvez obtenir [des explications sur la méthode d'optimisation](u_seuil) mais la méthode n'est pas à connaître.
 # 
-# Vous devez estimer un intervalle dans lequel la tension seuil et entrer ces valeurs pour `ud_min, ud_max`. La fonction `eval_ud` cherchera la tension dans cet intervalle. Pensez aussi à modifier la ligne qui va estimer la tension seuil ainsi que les caractéristiques du graphique.
+# Vous devez estimer un intervalle dans lequel la tension seuil va se trouver et entrer ces valeurs pour `ud_min, ud_max`. La fonction `eval_ud` cherchera la tension dans cet intervalle. Les seules lignes à modifier sont précisées dans le code.
 
 # In[2]:
 
 
-ud_min, ud_max = -1, 0  # LIGNE A MODIFIER
+ud_min, ud_max = -1, 0  # LIGNE A MODIFIER. Le programme cherchera la valeur seuil dans l'intervale.
 
 def eval_ud(u, i, ud_min, ud_max):
     """Fonction qui évalue la tension seuil la plus adaptée au tracé expérimental
@@ -90,7 +91,7 @@ def eval_ud(u, i, ud_min, ud_max):
 
 """Ecrire ci-dessous l'instruction qui va enregistrer dans la variable ud_estim l'estimation de ud
 avec la méthode précdente"""
-ud_estim = 0  # LIGNE A MODIFIER
+ud_estim = 0  # LIGNE A MODIFIER en appelant eval_ud
 
 
 """Ajout du modèle sur le graphique.
@@ -137,15 +138,30 @@ f.savefig("caracteristique_diode.png")
 # 
 # ````{admonition} Influence de la fréquence d'échantillonnage
 # 1. Pensez à régler le GBF pour qu'il délivre la tension voulue (_ne pas oublier d'activer le GBF avec le bouton `ON`_)
-# 2. Comment obtenir la fréquence d'échantillonnage à partir de la durée d'acquisition et du nombre de points de mesure ? En déduire le nombre de points nécessaire pour obtenir une fréquence d'échantillonnage de 100kHz puis de 10kHz.
+# 2. Comment obtenir la fréquence d'échantillonnage à partir de la durée d'acquisition et du nombre de points de mesure ? En déduire le nombre de points nécessaire pour obtenir une fréquence d'échantillonnage de 100kHz puis de 10kHz pour une durée d'acquisition de 10ms.
 # 3. Régler le nombre de points adéquats puis observer le signal acquis pour les deux fréquence d'échantillonnage précédentes. Mesurer alors (rapidement) la période du signal et la comparer à la valeur attendue.
 # 4. Choisir maintenant 100 points de mesure et modifier la durée d'acquisition pour avoir une fréquence d'échantillonnage de 1kHz. Observer le signal et mesurer la fréquence. Commenter.
 # ````
-# 
-# ```{margin}
+# ```{note}
 # Un clic-droit sur le graphique permet d'obtenir un menu où vous pouvez choisir de mesurer des valeurs.
 # ```
 # 
+# Vous rendrez compte de vos observations dans un tableau comme ci-dessous:
+# 
+# |Fréquence d'échantillonnage|100kHz|10kHz|1kHz|
+# |:-|:-:|:-:|:-:|
+# |Durée d'acquisition|10ms|10ms|?|
+# |Fréquence du signal attendue|960Hz|960Hz|960Hz|
+# |Fréquence du signal mesurée|?|?|?|
+# 
+# 
+# 
+# ```{sidebar} En pratique
+# * Les consoles FOXY en TP sont limités à 16000 points et une fréquence d'échantillonage de 10MHz. Ce sera suffisant pour nous.
+# * Un oscilloscope règle lui même sa fréquence d'échantillonnage en fonction de ses limites. On ne peut jouer que sur la durée d'acquisition pour éviter d'acquérir sur un temps trop long.
+# 
+# Des explications plus visuelles sur des simulations seront données lors du traitement des capacités numériques.
+# ```
 # ````{admonition} Critère de Shannon-Nyqvist
 # :class: important
 # Lorsqu'on fait l'acquisition d'un signal dont la fréquence maximale $f_{\max}$ (dans son spectre), il est nécessaire que la fréquence d'échantillonnage $f_e$ soit __au moins deux fois supérieure  à $f_{\max}$ :
@@ -156,13 +172,6 @@ f.savefig("caracteristique_diode.png")
 # 
 # En pratique, __on se placera à une fréquence d'échantillonnage bien plus grande que la limite du critère de Shannon-Nyqvist__ pour obtenir un visuel acceptable.
 # ````
-# 
-# ```{margin}
-# * Les consoles FOXY en TP sont limités à 16000 points et une fréquence d'échantillonage de 10MHz. Ce sera suffisant pour nous.
-# * Un oscilloscope règle lui même sa fréquence d'échantillonnage en fonction de ses limites. On ne peut jouer que sur la durée d'acquisition pour éviter d'acquérir sur un temps trop long.
-# 
-# Des explications plus visuelles sur des simulations seront données lors du traitement des capacités numériques.
-# ```
 # 
 # ### Acquisition unique ou continue ?
 # ```{admonition} Question
@@ -220,60 +229,8 @@ f.savefig("caracteristique_diode.png")
 # Ce n'est pas vrai pour tous les dipôles. La caractéristiques dynamique d'un condensateur sera toujours très différente de sa caractéristique statique.
 # ```
 # 
-# ### Utilisation d'un oscilloscope
-# On a vu que les bornes des voies d'acquisition reliées à la Terre, combinées à la borne du GBF reliée à la Terre posait des problèmes de court-circuit. Nous allons introduire un dispositif permettant d'isoler les bornes du GBF du reste du circuit : le __transformateur d'isolement__.
-# 
-# #### Principe et schématisation.
-# Un transformateur est un _quadripole_ composé de deux bobines qui influent l'une sur l'autre. Le schéma est donné ci-après
-# 
-# ```{figure} ./images/transfo_schema.png
-# :name: label_image
-# :align: center
-# Schéma d'un transformateur
-# ``` 
-# 
-# Deux bornes sont reliées à un circuit d'entrée (circuit primaire, gauche sur le schéma) qui reçoit une tension $u_1$. Par un phénomène d'induction qui sera étudié en fin d'année, il nait alors une tension $u_2$ aux bornes de la seconde bobine (circuit secondaire, droite sur le schéma) qui va donc alimenter le second circuit. Le rapport $m = \frac{u_2}{u_1}$ est appelé __rapport de transformation en tension__. Il existe des transformateurs réhausseur (augmentation de tension, en sortie des centrale électrique), abaisseurs (diminution de tension, dans les adaptateurs (d'ordinateur par exemple)).
-# 
-# Dans les transformateurs, les deux bobines __ne sont pas reliées électriquement__ donc les bornes du circuit primaire ne sont pas à priori reliées aux bornes du circuit secondaire. Donc si il y a un GBF avec une borne reliées à la Terre dans le circuit primaire, __il n'impose pas de borne de Terre dans le circuit secondaire__ : on peut la placer où on veut. On parle de rôle __d'isolement__ du transformateur.
-# 
-# Certains transformateurs ont un rôle uniquement d'isolement (d'où le nom de __transformateur d'isolement__) et possède alors un rapport $m=1$. C'est le cas du transformateur utilisé en TP.
-# 
-# ```{margin}
-# Vous observez peut-être un rapport légèrement différent de 1 car, comme nous le verrons en fin d'année, $m$ dépend de la fréquence des signaux.
-# ```
-# 
-# #### Contraintes d'utilisation
-# Le phénomène d'induction n'a lieu que sous certaines hypothèses qu'on va illustrer par une manipulation simple (prendre $R_p = 1k\Omega$).
-# 
-# ````{admonition} Manipulation
-# :class: tip
-# Réaliser le montage ci-dessous.
-# ```{figure} ./images/transfo_etude.jpg
-# :name: transfo_etude
-# :align: center
-# Etude du transformateur
-# ```
-# 1. Mesurer le rapport de transformation en tension pour une tension d'entrée sinusoïdale de fréquence 1kHz puis pour une tension continue. _On utilisera l'oscilloscope dans les deux cas et on reproduira le schéma du montage dans le compte-rendu en précisant les branchements de l'oscilloscope._
-# 2. Expliquer quelle contrainte doit avoir le signal d'entrée pour que le transformateur fonctionne.
-# ````
-# 
-# #### Rôle d'isolement
-# On va donc utiliser le rôle d'isolement du transformateur pour pouvoir brancher la Terre où l'on veut dans le secondaire et donc observer les tensions aux bornes de la résistances et de la diode dans le circuit suivant.
-# 
-# ```{figure} ./images/transfo_diode.jpg
-# :name: transfo_diode
-# :align: center
-# Etude de la caractéristique dynamique d'une diode.
-# ```
-# 
-# ````{admonition} Manipulation
-# :class: tip
-# 1. Réaliser le montage précédent.
-# 
-# * Le __Mode XY__ permet d'observer la voie 2 en fonction de la voie 1.
-# * Il est possible de multiplier le signal mesurée par $-1$ : (Dans le menu de la voie à modifier)
-# 
-# 2. Utiliser ces deux informations pour  observer la caractéristique de la diode pour les différents signaux déjà étudiés précédemment. Représenter dans votre compte-rendu l'allure des courbe observées et préciser pourquoi il est nécessaire de multiplier l'un des signaux par $-1$.
+# ````{topic} Utilisation d'un oscilloscope
+# On a vu que les bornes des voies d'acquisition reliées à la Terre, combinées à la borne du GBF reliée à la Terre posait des problèmes de court-circuit. Une telle étude dynamique serait possible en itnercalant un dispositif appelé __transformateur d'isolement__. Son fonctionnement sera expliqué plus tard.
 # ````
 # 
 # ## Impédance de sortie du GBF (1h)
@@ -315,12 +272,16 @@ import numpy.random as rd
 N = 1000000  # Ce sera le nombre de simulations à réaliser.
 
 """
-Créer les vecteurs numpy correspondant aux distributions associées aux mesures de U et de I aux multimètres.
+Créer les vecteurs numpy correspondant aux distributions associées aux mesures de U et de I aux multimètres ainsi qu'à leurs incertitudes. S'inspirer de ce qui a été fait en optique. U et I sont ici des valeurs uniques et non des vecteurs.
 Sans plus d'information, on considèrera que les distribution associées aux valeurs données par le multimètre
 sont des distributions uniformes (fonction uniform(start, stop, N) dans numpy.random).
 """
 
-"""En déduire dans la variable RS les N valeurs simulées de la résistance de sortie."""
+
+
+"""En déduire dans la variable RS les N valeurs simulées de la résistance de sortie. Si vous avez bien créé des VECTEURS, vous pouvez utiliser directement les opérations mathématiques classiques pour calculer RS."""
+
+
 
 
 """Calculer puis afficher la moyenne et l'écart-type du vecteur On rappelle :
