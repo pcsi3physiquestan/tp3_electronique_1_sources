@@ -1,21 +1,5 @@
 {
   "notebook/demod_preliminaire": {
-    "sig_mod": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "sig_mod",
-          "mime_prefix": ""
-        },
-        "filenames": {
-          "image/png": "/home/ubuntu/Dropbox/Enseignement prepas/travaux_pratiques/sources/tp3_elec/_build/jupyter_execute/notebook/demod_preliminaire_1_0.png"
-        }
-      },
-      "data": {
-        "text/plain": "<Figure size 648x432 with 1 Axes>",
-        "image/png": null
-      }
-    },
     "sig_mod2": {
       "output_type": "display_data",
       "metadata": {
@@ -25,6 +9,22 @@
         },
         "filenames": {
           "image/png": "/home/ubuntu/Dropbox/Enseignement prepas/travaux_pratiques/sources/tp3_elec/_build/jupyter_execute/notebook/demod_preliminaire_1_1.png"
+        }
+      },
+      "data": {
+        "text/plain": "<Figure size 648x432 with 1 Axes>",
+        "image/png": null
+      }
+    },
+    "sig_mod": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "sig_mod",
+          "mime_prefix": ""
+        },
+        "filenames": {
+          "image/png": "/home/ubuntu/Dropbox/Enseignement prepas/travaux_pratiques/sources/tp3_elec/_build/jupyter_execute/notebook/demod_preliminaire_1_0.png"
         }
       },
       "data": {
