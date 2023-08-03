@@ -24,15 +24,15 @@
 # Attention la caractéristique donnée est en convention récepteur __avec i dans le sens donnée sur le symbole ci-dessus__. Dans le cas des dipôles polarisés, le sens de $i$ (et de $u$) a une influence sur l'allure de la caractéristique.
 # ```
 # 
-# ````{panels}
-# :column: col-lg-8 p-2
+# `````{grid}
+# ````{grid-item}
 # ```{figure} ./images/diode_carac.png
 # :name: diode_carac
 # :align: center
 # Caractéristique d'une diode
 # ```
-# ---
-# :column: col-lg-4 p-2
+# ````
+# ````{grid-item}
 # ```{figure} ./images/diode_symbole.png
 # :name: diode_symbole
 # :align: center
@@ -40,6 +40,7 @@
 # Symbole d'une diode
 # ```
 # ````
+# `````
 # 
 # On distingue deux modélisations :
 # * Modélisation précise (en rouge sur le graphique) : la relation $i(u)$ est alors modélisée par une relation exponentielle. On n'utilisera pas cette modélisation en TP.
@@ -116,19 +117,22 @@
 # 
 # Puisqu'on réalise des études en régime indépendant du temps, l'utilisation des multimètres peut suffire. On donne la représentation schématique d'un [voltmètre](voltmetre) et d'un [ampèremètre](amperemetre).
 # 
-# ````{panels}
+# `````{grid}
+# ````{grid-item}
 # ```{figure} ./images/voltmetre.png
 # :name: voltmetre
 # :align: center
 # Voltmètre. Le tension est mesurée dans le sens où est représentée Uc.
 # ```
-# ---
+# ````
+# ````{grid-item}
 # ```{figure} ./images/amperemetre.png
 # :name: amperemetre
 # :align: center
 # Ampèremètre. L'intensité est mesurée dans le sens entrant par la borne +.
 # ```
 # ````
+# `````
 # 
 # ```{admonition} Exercice.
 # :class: tip
